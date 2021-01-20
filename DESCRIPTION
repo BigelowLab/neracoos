@@ -1,0 +1,17 @@
+Package: neracoos
+Maintainer: Ben Tupper <btupper@bigelow.org>
+Author: Ben Tupper <btupper@bigelow.org>, Johnathan Evanilla <btupper@bigelow.org>
+URL: https://github.com/bigelowlab/nercoos
+Version: 0.1
+License: MIT + file LICENSE
+Title: rasf
+Description: Tools for working with NERACOOS thredds served data.
+Encoding: UTF-8
+Depends:
+    R (>= 3.0)
+Imports:
+    dplyr,
+    rlang,
+    ncdf4,
+    thredds
+RoxygenNote: 7.1.1
