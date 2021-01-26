@@ -13,5 +13,6 @@ Imports:
     dplyr,
     rlang,
     ncdf4,
-    thredds
+    thredds,
+    tsibble
 RoxygenNote: 7.1.1

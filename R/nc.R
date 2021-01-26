@@ -1,3 +1,12 @@
+#' Close an `ncdf4` connection
+#'
+#' @seealso \code{\link[ncdf4]{nc_close}}
+#' @export
+#' @param x ncdf4 class object to close
+nc_close <- function(x){
+  ncdf4::nc_close(x)
+}
+
 #' Test if ncdf4 object has a dimension
 #'
 #' @export
@@ -85,12 +94,15 @@ nc_get_location <- function(x, dims = c("lon", "lat", "depth")){
 #' @param dnames character, the name of the dimensions to retrieve
 #' @param vnames character, the name of the variables to retrieve
 #' @param ... other arguments for \code{nc_get_var}
+#' @param form character either "table" (default) or "tsibble"
+#'   the default table is a tibble.
 #' @return table of dimensions and variables
 nc_get_table <- function(x, dnames = "time",
                          vnames = c("conductivity",
                                     "temperature",
                                     "salinity",
                                     "sigma_t"),
+                         form = c("table", "tsibble")[1],
                          ...){
 
   if (FALSE){
@@ -117,6 +129,10 @@ nc_get_table <- function(x, dnames = "time",
   r <- d %>%
     dplyr::as_tibble() %>%
     dplyr::bind_cols(v %>% dplyr::as_tibble())
+
+  if (tolower(form[1]) == "tsibble"){
+    r <- buoy_tsibble(r)
+  }
 
   return(r)
 }

@@ -9,6 +9,7 @@ nc_get_table(
   x,
   dnames = "time",
   vnames = c("conductivity", "temperature", "salinity", "sigma_t"),
+  form = c("table", "tsibble")[1],
   ...
 )
 }
@@ -18,6 +19,9 @@ nc_get_table(
 \item{dnames}{character, the name of the dimensions to retrieve}
 
 \item{vnames}{character, the name of the variables to retrieve}
+
+\item{form}{character either "table" (default) or "tsibble"
+the default table is a tibble.}
 
 \item{...}{other arguments for \code{nc_get_var}}
 }
