@@ -2,16 +2,21 @@
 % Please edit documentation in R/thredds.R
 \name{thredds_base_url}
 \alias{thredds_base_url}
-\title{Retrieve the base URL for the NERACOOS thredds server}
+\title{Retrieve the base URL for the NERACOOS thredds server for buoys}
 \usage{
-thredds_base_url(what = c("html", "xml")[1])
+thredds_base_url(what = c("html", "xml")[1], catalog = c("default", "sos")[1])
 }
 \arguments{
 \item{what}{character, extension for URL either 'html' or 'xml'}
+
+\item{catalog}{character, specifes the 'default', or 'sos'}
 }
 \value{
 character URL
 }
 \description{
-Retrieve the base URL for the NERACOOS thredds server
+Retrieve the base URL for the NERACOOS thredds server for buoys
+}
+\seealso{
+\href{http://www.neracoos.org/datatools/data_services}{NERACOOS Data Servcies}
 }

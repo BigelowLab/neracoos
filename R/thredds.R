@@ -6,13 +6,23 @@ neracoos_base_url <- function(){
   return("http://www.neracoos.org")
 }
 
-#' Retrieve the base URL for the NERACOOS thredds server
+#' Retrieve the base URL for the NERACOOS thredds server for buoys
+#' 
+#' @seealso \href{http://www.neracoos.org/datatools/data_services}{NERACOOS Data Servcies}
 #'
 #' @export
 #' @param what character, extension for URL either 'html' or 'xml'
+#' @param catalog character, specifes the 'default', or 'sos' 
 #' @return character URL
-thredds_base_url <- function(what = c("html", "xml")[1]){
-  paste0(neracoos_base_url(),"/thredds/catalog.", tolower(what[1]))
+thredds_base_url <- function(what = c("html", "xml")[1],
+                             catalog = c("default", "sos")[1]){
+  
+  branch <- switch(to_lower(catalog[1]),
+                   "sos" = "sos_catalog",
+                   "catalog")
+  file.path(neracoos_base_url(), 
+            "thredds", 
+            paste(branch, tolower(what[1]), sep = "."))
 }
 
 
