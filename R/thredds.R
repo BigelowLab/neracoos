@@ -17,7 +17,7 @@ neracoos_base_url <- function(){
 thredds_base_url <- function(what = c("html", "xml")[1],
                              catalog = c("default", "sos")[1]){
   
-  branch <- switch(to_lower(catalog[1]),
+  branch <- switch(tolower(catalog[1]),
                    "sos" = "sos_catalog",
                    "catalog")
   file.path(neracoos_base_url(), 
