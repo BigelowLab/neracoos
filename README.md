@@ -20,7 +20,7 @@
 ## Installation
 
 ```
-remotes::install_github(https://github.com/BigelowLab/neracoos)
+remotes::install_github("BigelowLab/neracoos")
 ```
 
 ### Getting Buoy data
